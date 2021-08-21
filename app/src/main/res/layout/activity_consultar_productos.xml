@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo1"
+    tools:context=".webservice.ConsultarProductos">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="50dp">
+                <Button
+                    android:id="@+id/btnEliCampos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Limpiar"
+                    android:gravity="center"
+                    android:background="@drawable/borde2"
+                    android:textColor="@android:color/white" />
+                <Button
+                    android:id="@+id/btnConslista"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Lista"
+                    android:onClick="Archivo"
+                    android:gravity="center"
+                    android:background="@drawable/borde2"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/codiProducCons"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/borde"
+                    android:layout_weight="2"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:nextFocusDown="@id/descripcionCons"
+                    android:hint=" Código"/>
+
+                <Button
+                    android:id="@+id/btnBuscarCons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="Buscar"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/bordecel"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/descripcionCons"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/borde"
+                    android:layout_weight="2"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:nextFocusDown="@id/preciocCons"
+                    android:hint=" Descripción" />
+
+                <Button
+                    android:id="@+id/btnBuscarNomCons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="Buscar"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/bordecel"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/preciocCons"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/borde"
+                android:singleLine="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/preciovCons"
+                android:hint=" Precio Costo" />
+
+
+            <EditText
+                android:id="@+id/preciovCons"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/borde"
+                android:singleLine="true"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionNext"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:nextFocusDown="@id/fabricante"
+                android:hint=" Precio Venta" />
+
+            <EditText
+                android:id="@+id/fabricanteCons"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/borde"
+                android:hint=" Fabricante" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:id="@+id/imgFotoCons"
+                    android:layout_width="250dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/sinimagen"
+                    android:layout_gravity="center"
+                    android:layout_below="@+id/linearLayout"
+                    android:layout_centerHorizontal="true" />
+
+                <Button
+                    android:id="@+id/btnFotoCons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="FOTO"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bordecel"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:id="@+id/linearLayout2">
+
+                <Button
+                    android:id="@+id/btnEditarCons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Actualizar"
+                    android:background="@drawable/bordeama"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:layout_weight="2"
+                    android:layout_marginRight="1dp"/>
+
+                <Button
+                    android:id="@+id/btnEliminarCons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Eliminar"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:background="@drawable/borde2"
+                    android:textColor="@android:color/white"
+                    android:layout_weight="2"
+                    android:layout_marginLeft="1dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

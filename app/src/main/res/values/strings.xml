@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ProveeX</string>
+    <string name="hint_nombre">Nombre:</string>
+    <string name="hint_telefono">Telefono:</string>
+    <string name="hint_correo_electronico">Correo electronico:</string>
+    <string name="btn_guarda">Guardar registro</string>
+    <string name="menu_nuevo">Nuevo registro</string>
+    <string name="Iniciar">Button</string>
+    <string name="cancelar">Button</string>
+    <string name="registrar">Button</string>
+    <string name="ImagenApp">TODO</string>
+    <string name="banner_ad_unit_id">ca-app-pub-5454483537308682/3054899679</string>
+    <string name="banner2_ad_unit_id">ca-app-pub-5454483537308682/3845237161</string>
+    <string name="intersticial_ad_unit_id">ca-app-pub-5454483537308682/7700721695</string>
+    <string name="default_notification_channel_id" translatable="false">default_channel</string>
+</resources>

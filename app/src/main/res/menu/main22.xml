@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/empty"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:icon="@drawable/puntos1"
+        android:title="">
+
+        <menu>
+
+            <item
+                android:id="@+id/action_acercade22"
+                android:orderInCategory="100"
+                android:icon="@drawable/info"
+                android:title="Información"
+                app:showAsAction="always|withText" />
+
+            <item
+                android:id="@+id/action_contacto22"
+                android:orderInCategory="100"
+                android:icon="@drawable/contac"
+                android:title="Soporte"
+                app:showAsAction="always|withText" />
+            <item
+                android:id="@+id/action_salir22"
+                android:orderInCategory="100"
+                android:icon="@drawable/salir"
+                android:title="Salir"
+                app:showAsAction="always|withText" />
+
+        </menu>
+    </item>
+</menu>

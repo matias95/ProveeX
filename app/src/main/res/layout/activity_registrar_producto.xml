@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/fondo1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".webservice.RegistrarProductoActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/btnEliminarCampos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Limpiar"
+                    android:gravity="center"
+                    android:background="@drawable/borde2"
+                    android:textColor="@android:color/white" />
+                <Button
+                    android:id="@+id/btnlista"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Lista"
+                    android:onClick="Archivo"
+                    android:gravity="center"
+                    android:background="@drawable/borde2"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/codiProduc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/borde"
+                android:layout_weight="2"
+                android:singleLine="true"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/producto"
+                android:hint=" Codigo"/>
+
+
+            <EditText
+                android:id="@+id/producto"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/borde"
+                android:layout_weight="2"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/precioCosto"
+                android:hint=" Descripción" />
+
+            <EditText
+                android:id="@+id/precioCosto"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/borde"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/precioVenta"
+                android:hint=" Precio Costo" />
+
+
+            <EditText
+                android:id="@+id/precioVenta"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/borde"
+                android:gravity="center"
+                android:hint=" Precio Venta"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:nextFocusDown="@id/fabricante"
+                android:singleLine="true" />
+
+
+            <EditText
+                android:id="@+id/fabricante"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:gravity="center"
+                android:background="@drawable/borde"
+                android:imeOptions="actionDone"
+                android:hint=" Fabricante" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/imgFoto"
+                    android:layout_width="250dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/sinimagen"
+                    android:layout_gravity="center"
+                    android:layout_below="@+id/linearLayout"
+                    android:layout_centerHorizontal="true" />
+
+                <Button
+                    android:id="@+id/btnFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="FOTO"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bordecel"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnRegistrarPro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40dp"
+                android:text="Registrar Producto"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:background="@drawable/bordecel"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+    </ScrollView>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

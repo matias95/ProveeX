@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff0008</color>
+    <color name="colorPrimaryDark">#b9000c</color>
+    <color name="colorAccent">#0091EA</color>
+
+    <color name="colorAccentw">#00FFFF</color>
+    <color name="colorresg">#9C96A6</color>
+
+    <color name="colorJugar">#FFCC00</color>
+    <color name="colorAjustes">#26CA69</color>
+    <color name="colorRanking">#03A9F5</color>
+    <color name="colorVinotinto">#89024c</color>
+    <color name="colorAzulRey">#272e51</color>
+    <color name="colorTurquesa">#41bfbf</color>
+    <color name="colorInstrucciones">#FF9700</color>
+    <color name="colorAma">#D5B927</color>
+    <color name="gray">#7C7C7C</color>
+    <color name="graySelected">#6C6C6C</color>
+
+    <color name="orange">#FF9800</color>
+    <color name="orangeSelected">#CA7800</color>
+
+
+</resources>

@@ -1,0 +1,4 @@
+key: 3895grosotkb
+alias: key()
+
+google.com, pub-5454483537308682, DIRECT, f08c47fec0942fa0

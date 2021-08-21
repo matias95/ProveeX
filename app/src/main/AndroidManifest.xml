@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.matiasep.proveex">
+
+    <!--
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    -->
+
+    <application
+        android:name="com.matiasep.proveex.notificacion.ApplicationClass"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ico" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@android:color/holo_red_dark" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <activity
+            android:name="com.matiasep.proveex.webservice.RegistrarProductoActivity"
+            android:label="Registrar Producto"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+
+        <activity
+            android:name="com.matiasep.proveex.SQLite.nuevo.RegistroProductoN"
+            android:label="Registrar Producto"
+            android:parentActivityName="com.matiasep.proveex.MenuInicio"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
+            android:name="com.matiasep.proveex.webservice.ListaProductos"
+            android:label="Lista de Productos"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.matiasep.proveex.SQLite.nuevo.ListaProdRecycler"
+            android:label="Lista de Productos"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.matiasep.proveex.MenuInicio">
+        </activity>
+        <activity
+            android:name="com.matiasep.proveex.webservice.ConsultarProductos"
+            android:label="Consultar Producto"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+
+        </activity>
+
+        <activity
+            android:name="com.matiasep.proveex.SQLite.nuevo.ConsultarProductoN"
+            android:label="Consultar Producto"
+            android:parentActivityName="com.matiasep.proveex.MenuInicio"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name="com.matiasep.proveex.SQLite.nuevo.DetalleProductoN"
+            android:label="Detalles Producto"
+            android:parentActivityName="com.matiasep.proveex.MenuInicio"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
+
+
+        <activity
+            android:name="com.matiasep.proveex.MenuInicio"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+            android:name="com.matiasep.proveex.PresentacionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"/>
+
+        <activity
+            android:name="com.matiasep.proveex.RegistrarUsuario"
+            android:label="Registrarme"
+            android:parentActivityName="com.matiasep.proveex.LoginUsuario"
+            android:screenOrientation="portrait" >
+
+        </activity>
+        <activity
+            android:name="com.matiasep.proveex.ScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name="com.matiasep.proveex.LoginUsuario"
+            android:label="Iniciar Sesión"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"/>
+
+        <activity
+            android:name="com.matiasep.proveex.SQLite.nuevo.CalcuActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.matiasep.proveex.MenuInicio"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name="com.matiasep.proveex.AcercaDeActivity"
+            android:label="Información"
+            android:parentActivityName="com.matiasep.proveex.LoginUsuario"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.matiasep.proveex.ContactoActivity"
+            android:label="Soporte Técnico"
+            android:parentActivityName="com.matiasep.proveex.LoginUsuario"
+            android:screenOrientation="portrait" />
+
+        <service android:name="com.matiasep.proveex.notificacion.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5454483537308682~9356584145" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.onesignal.NotificationAccentColor.DEFAULT"
+            android:value="B9000C" />
+    </application>
+
+</manifest>

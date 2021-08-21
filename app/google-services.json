@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "881836176178",
+    "firebase_url": "https://proveex-6cdc3.firebaseio.com",
+    "project_id": "proveex-6cdc3",
+    "storage_bucket": "proveex-6cdc3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881836176178:android:6c1bce22fe367b3dde5d2b",
+        "android_client_info": {
+          "package_name": "com.matiasep.proveex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881836176178-0jpl3n82c3snh8iujomaf0dfg2goj5dp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpeEORuZwTteRRcB9lh5lCojp8UuMSPBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881836176178-0jpl3n82c3snh8iujomaf0dfg2goj5dp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
