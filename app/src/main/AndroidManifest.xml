@@ -54,6 +54,7 @@
             android:name="com.matiasep.proveex.SQLite.nuevo.ListaProdRecycler"
             android:label="Lista de Productos"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
             android:parentActivityName="com.matiasep.proveex.MenuInicio">
         </activity>
         <activity

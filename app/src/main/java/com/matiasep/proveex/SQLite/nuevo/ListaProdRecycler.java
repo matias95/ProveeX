@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,12 +31,13 @@ import com.matiasep.proveex.R;
 
 import java.util.ArrayList;
 
-public class ListaProdRecycler extends AppCompatActivity {
+public class ListaProdRecycler extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     ArrayList<ProductoN> listaProducto;
     RecyclerView recyclerViewProductos;
     TextView imagSinConexion;
-
+    SearchView svSearch;
+    ProductosAdapterN adapter;
 
     ConexionSQLiteHelperN conn;
 
@@ -48,7 +50,7 @@ public class ListaProdRecycler extends AppCompatActivity {
 
         imagSinConexion= findViewById(R.id.SinConexionCal);
         imagSinConexion.setVisibility(View.INVISIBLE);
-
+        svSearch = findViewById(R.id.svSearch);
 
         listaProducto=new ArrayList<>();
 
@@ -57,7 +59,7 @@ public class ListaProdRecycler extends AppCompatActivity {
         recyclerViewProductos= (RecyclerView) findViewById(R.id.listaProductosL);
         recyclerViewProductos.setLayoutManager(new LinearLayoutManager(this));
 
-        ProductosAdapterN adapter=new ProductosAdapterN(listaProducto);
+        adapter=new ProductosAdapterN(listaProducto);
         recyclerViewProductos.setAdapter(adapter);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -67,6 +69,8 @@ public class ListaProdRecycler extends AppCompatActivity {
                registrar();
             }
         });
+
+        svSearch.setOnQueryTextListener(this);
 
     }
     private void registrar(){
@@ -92,6 +96,16 @@ public class ListaProdRecycler extends AppCompatActivity {
 
             listaProducto.add(productoN);
         }
+    }
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        adapter.filter(newText);
+        return false;
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

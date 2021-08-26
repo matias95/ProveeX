@@ -41,7 +41,7 @@ public class DetalleProductoN extends AppCompatActivity {
 
 
     ProductoN productoN;
-    int codigo=0;
+    Integer codigo=0;
     ConexionSQLiteHelperN conn;
 
 
@@ -74,23 +74,22 @@ public class DetalleProductoN extends AppCompatActivity {
             if(extras == null){
                 codigo = Integer.parseInt(null);
             } else {
-                codigo = extras.getInt("ID");
+                codigo = extras.getInt("CO");
             }
         } else {
-            codigo = (int) savedInstanceState.getSerializable("ID");
+            codigo = (Integer) savedInstanceState.getSerializable("CO");
         }
+
         conn= new ConexionSQLiteHelperN(getApplicationContext(),"bd_productos",null,1);
 
-        verProducto(codigo);
+        //verProducto(codigo);
 
         if(productoN != null){
-
             campoId.setText(productoN.getCodigo());
             campoNombre.setText(productoN.getNombre());
             campoPC.setText(productoN.getPreciocosto());
             campoPV.setText(productoN.getPrecioventa());
             campoF.setText(productoN.getFabricante());
-
         }
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +124,7 @@ public class DetalleProductoN extends AppCompatActivity {
         });
 
     }
-    private void verProducto(int codigo) {
+    /*private void verProducto(int codigo) {
 
         SQLiteDatabase db=conn.getReadableDatabase();
 
@@ -146,7 +145,7 @@ public class DetalleProductoN extends AppCompatActivity {
 
             return;
         }
-    }
+    }*/
     private void eliminarProducto() {
         SQLiteDatabase db=conn.getWritableDatabase();
         String[] parametros={campoId.getText().toString()};
