@@ -21,8 +21,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -38,6 +40,7 @@ public class ConsultarProductoN extends AppCompatActivity {
     EditText campoId,campoNombre,campoPC,campoPV, campoF;
     Button btnEdit, btndele, btnBC, btnBN, btnlista;
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd, mInterstitialAde;
 
     ConexionSQLiteHelperN conn;
 
@@ -45,12 +48,48 @@ public class ConsultarProductoN extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver);
-        //Banner
+
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+
+        //InterstitialAd
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAde = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-5454483537308682/9183217963");
+        mInterstitialAde.setAdUnitId("ca-app-pub-5454483537308682/9183217963");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAde.loadAd(new AdRequest.Builder().build());
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                actualizarProducto();
+                Toast.makeText(getApplicationContext(),"PRODUCTO ACTUALIZADO",Toast.LENGTH_LONG).show();
+                lista();
+
+            }
+
+        });
+        mInterstitialAde.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAde.loadAd(new AdRequest.Builder().build());
+                eliminarProducto();
+                Toast.makeText(getApplicationContext(),"PRODUCTO ELIMINADO",Toast.LENGTH_LONG).show();
+                campoId.setText("");
+                lista();
+                limpiar();
+            }
+
+        });
+
+        //Banner
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -71,9 +110,15 @@ public class ConsultarProductoN extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualizarProducto();
-                Toast.makeText(getApplicationContext(),"PRODUCTO ACTUALIZADO",Toast.LENGTH_LONG).show();
-                lista();
+                if(mInterstitialAd.isLoaded()){
+                    mInterstitialAd.show();
+
+                }else {
+                    actualizarProducto();
+                    Toast.makeText(getApplicationContext(),"PRODUCTO ACTUALIZADO",Toast.LENGTH_LONG).show();
+                    lista();
+                }
+
             }
         });
         btndele.setOnClickListener(new View.OnClickListener() {
@@ -84,11 +129,17 @@ public class ConsultarProductoN extends AppCompatActivity {
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
-                                eliminarProducto();
-                                Toast.makeText(getApplicationContext(),"PRODUCTO ELIMINADO",Toast.LENGTH_LONG).show();
-                                campoId.setText("");
-                                lista();
-                                limpiar();
+                                if(mInterstitialAde.isLoaded()){
+                                    mInterstitialAde.show();
+
+                                }else {
+                                    eliminarProducto();
+                                    Toast.makeText(getApplicationContext(),"PRODUCTO ELIMINADO",Toast.LENGTH_LONG).show();
+                                    campoId.setText("");
+                                    lista();
+                                    limpiar();
+                                }
+
                             }
                         })
                         .setNegativeButton("NO", new DialogInterface.OnClickListener() {

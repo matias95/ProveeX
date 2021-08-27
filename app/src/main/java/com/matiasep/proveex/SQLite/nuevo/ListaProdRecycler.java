@@ -21,7 +21,13 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.matiasep.proveex.AcercaDeActivity;
 import com.matiasep.proveex.ContactoActivity;
@@ -38,6 +44,7 @@ public class ListaProdRecycler extends AppCompatActivity implements SearchView.O
     TextView imagSinConexion;
     SearchView svSearch;
     ProductosAdapterN adapter;
+    private InterstitialAd mInterstitialAdr, mInterstitialAdc;
 
     ConexionSQLiteHelperN conn;
 
@@ -45,6 +52,40 @@ public class ListaProdRecycler extends AppCompatActivity implements SearchView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_p);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        //InterstitialAd
+        mInterstitialAdr = new InterstitialAd(this);
+        mInterstitialAdc = new InterstitialAd(this);
+        mInterstitialAdr.setAdUnitId("ca-app-pub-5454483537308682/7700721695");
+        mInterstitialAdc.setAdUnitId("ca-app-pub-5454483537308682/7700721695");
+        mInterstitialAdr.loadAd(new AdRequest.Builder().build());
+        mInterstitialAdc.loadAd(new AdRequest.Builder().build());
+
+        mInterstitialAdr.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAdr.loadAd(new AdRequest.Builder().build());
+                registrar();
+
+            }
+
+        });
+        mInterstitialAdc.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAdc.loadAd(new AdRequest.Builder().build());
+                consultar();
+            }
+
+        });
 
         conn=new ConexionSQLiteHelperN(getApplicationContext(),"bd_productos",null,1);
 
@@ -62,11 +103,29 @@ public class ListaProdRecycler extends AppCompatActivity implements SearchView.O
         adapter=new ProductosAdapterN(listaProducto);
         recyclerViewProductos.setAdapter(adapter);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab1);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               registrar();
+                if(mInterstitialAdr.isLoaded()){
+                    mInterstitialAdr.show();
+
+                }else {
+                    registrar();
+                }
+            }
+        });
+
+        FloatingActionButton fab2 = findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mInterstitialAdc.isLoaded()){
+                    mInterstitialAdc.show();
+
+                }else {
+                    consultar();
+                }
             }
         });
 
@@ -75,6 +134,10 @@ public class ListaProdRecycler extends AppCompatActivity implements SearchView.O
     }
     private void registrar(){
         Intent intent = new Intent(this, RegistroProductoN.class);
+        startActivity(intent);
+    }
+    private void consultar(){
+        Intent intent = new Intent(this, ConsultarProductoN.class);
         startActivity(intent);
     }
 

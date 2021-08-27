@@ -18,8 +18,10 @@ import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -36,6 +38,7 @@ public class MenuInicio extends AppCompatActivity {
     CardView cardCons,cardRegis,cardlista,cardcalc;
     ProgressDialog mProcessDialog;
     private AdView mAdView;
+    private InterstitialAd mInterstitialAdc,mInterstitialAdr,mInterstitialAdl,mInterstitialAdca;
 
 
     @Override
@@ -43,12 +46,70 @@ public class MenuInicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_inicio);
 
-        //Banner
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+
+        //InterstitialAd
+        mInterstitialAdc = new InterstitialAd(this);
+        mInterstitialAdr = new InterstitialAd(this);
+        mInterstitialAdl = new InterstitialAd(this);
+        mInterstitialAdca = new InterstitialAd(this);
+        mInterstitialAdc.setAdUnitId("ca-app-pub-5454483537308682/9183217963");
+        mInterstitialAdr.setAdUnitId("ca-app-pub-5454483537308682/7700721695");
+        mInterstitialAdl.setAdUnitId("ca-app-pub-5454483537308682/9183217963");
+        mInterstitialAdca.setAdUnitId("ca-app-pub-5454483537308682/7700721695");
+        mInterstitialAdc.loadAd(new AdRequest.Builder().build());
+        mInterstitialAdr.loadAd(new AdRequest.Builder().build());
+        mInterstitialAdl.loadAd(new AdRequest.Builder().build());
+        mInterstitialAdca.loadAd(new AdRequest.Builder().build());
+
+
+        mInterstitialAdc.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAdc.loadAd(new AdRequest.Builder().build());
+                Toast.makeText(getApplicationContext(), "Consultar Producto", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), ConsultarProductoN.class);
+                startActivity(i);
+            }
+
+        });
+        mInterstitialAdr.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAdr.loadAd(new AdRequest.Builder().build());
+                Toast.makeText(getApplicationContext(), "Registrar Productos", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), RegistroProductoN.class);
+                startActivity(i);
+            }
+
+        });
+        mInterstitialAdl.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                Toast.makeText(getApplicationContext(), "Lista de Productos", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), ListaProdRecycler.class);
+                startActivity(i);
+            }
+
+        });
+        mInterstitialAdca.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                Toast.makeText(getApplicationContext(), "Calculadora", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), CalcuActivity.class);
+                startActivity(i);
+            }
+
+        });
+        //Banner
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -67,36 +128,60 @@ public class MenuInicio extends AppCompatActivity {
         cardCons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Consultar Producto", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), ConsultarProductoN.class);
-                startActivity(i);
+                if(mInterstitialAdc.isLoaded()){
+                    mInterstitialAdc.show();
+
+                }else {
+                    Toast.makeText(getApplicationContext(), "Consultar Producto", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getApplicationContext(), ConsultarProductoN.class);
+                    startActivity(i);
+                }
+
             }
         });
 
         cardRegis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Registrar Productos", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), RegistroProductoN.class);
-                startActivity(i);
+                if(mInterstitialAdr.isLoaded()){
+                    mInterstitialAdr.show();
+
+                }else {
+                    Toast.makeText(getApplicationContext(), "Registrar Productos", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getApplicationContext(), RegistroProductoN.class);
+                    startActivity(i);
+                }
+
             }
         });
 
         cardlista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Lista de Productos", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), ListaProdRecycler.class);
-                startActivity(i);
+                if(mInterstitialAdl.isLoaded()){
+                    mInterstitialAdl.show();
+
+                }else {
+                    Toast.makeText(getApplicationContext(), "Lista de Productos", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getApplicationContext(), ListaProdRecycler.class);
+                    startActivity(i);
+                }
+
             }
         });
 
         cardcalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Calculadora", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), CalcuActivity.class);
-                startActivity(i);
+                if(mInterstitialAdca.isLoaded()){
+                    mInterstitialAdca.show();
+
+                }else {
+                    Toast.makeText(getApplicationContext(), "Calculadora", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getApplicationContext(), CalcuActivity.class);
+                    startActivity(i);
+                }
+
             }
         });
     }

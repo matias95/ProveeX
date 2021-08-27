@@ -45,7 +45,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -92,8 +92,6 @@ public class ConsultarProductos extends AppCompatActivity {
     String codigo, descripcion, fabricante, imagen;
     Integer precio;
     private AdView mAdView;
-    private InterstitialAd mInterstitialAd, mInterstitialAd1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

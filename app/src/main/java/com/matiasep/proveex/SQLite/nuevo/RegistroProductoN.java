@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,8 +19,10 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -35,18 +38,40 @@ public class RegistroProductoN extends AppCompatActivity {
     EditText campoId,campoNombre,campoPC,campoPV, campoF;
     Button btnFoto,btnGuarda, btnlista, btnlimpiar;
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_p);
 
-        //Banner
+
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+
+        //InterstitialAd
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-5454483537308682/7700721695");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                registrarProducto();
+                Toast.makeText(getApplicationContext(), "PRODUCTO GUARDADO", Toast.LENGTH_LONG).show();
+                limpiar();
+                lista();
+            }
+
+        });
+
+
+        //Banner
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -63,10 +88,16 @@ public class RegistroProductoN extends AppCompatActivity {
         btnGuarda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registrarProducto();
-                Toast.makeText(getApplicationContext(), "PRODUCTO GUARDADO", Toast.LENGTH_LONG).show();
-                limpiar();
-                lista();
+                if(mInterstitialAd.isLoaded()){
+                    mInterstitialAd.show();
+
+                }else {
+                    registrarProducto();
+                    Toast.makeText(getApplicationContext(), "PRODUCTO GUARDADO", Toast.LENGTH_LONG).show();
+                    limpiar();
+                    lista();
+                }
+
             }
         });
         btnlimpiar.setOnClickListener(new View.OnClickListener() {

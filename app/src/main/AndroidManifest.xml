@@ -120,6 +120,7 @@
         <activity
             android:name="com.matiasep.proveex.SQLite.nuevo.CalcuActivity"
             android:screenOrientation="portrait"
+            android:label="Calculadora"
             android:parentActivityName="com.matiasep.proveex.MenuInicio"/>
 
         <provider
