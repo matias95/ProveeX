@@ -11,7 +11,7 @@ public class ProductoN implements  Serializable{
     private String precioventa;
     private String fabricante;
 
-    public ProductoN() {
+    public ProductoN(){
         this.codigo = codigo;
         this.nombre = nombre;
         this.preciocosto = preciocosto;

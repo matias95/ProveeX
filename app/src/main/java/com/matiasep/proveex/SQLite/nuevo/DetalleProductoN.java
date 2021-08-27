@@ -32,6 +32,7 @@ import com.matiasep.proveex.ContactoActivity;
 import com.matiasep.proveex.LoginUsuario;
 import com.matiasep.proveex.MenuInicio;
 import com.matiasep.proveex.R;
+import com.matiasep.proveex.SQLite.nuevo.ProductoN;
 
 public class DetalleProductoN extends AppCompatActivity {
 
@@ -40,8 +41,8 @@ public class DetalleProductoN extends AppCompatActivity {
     private AdView mAdView;
 
 
-    ProductoN productoN;
-    Integer codigo=0;
+    private ProductoN productoN;
+    //Integer codigo=0;
     ConexionSQLiteHelperN conn;
 
 
@@ -69,7 +70,7 @@ public class DetalleProductoN extends AppCompatActivity {
         btndele= findViewById(R.id.btnEliminar);
         btnlista=findViewById(R.id.listaS);
 
-        if(savedInstanceState == null){
+        /*if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             if(extras == null){
                 codigo = Integer.parseInt(null);
@@ -78,19 +79,20 @@ public class DetalleProductoN extends AppCompatActivity {
             }
         } else {
             codigo = (Integer) savedInstanceState.getSerializable("CO");
-        }
+        }*/
 
         conn= new ConexionSQLiteHelperN(getApplicationContext(),"bd_productos",null,1);
 
         //verProducto(codigo);
 
-        if(productoN != null){
+        /*if(productoN != null){
             campoId.setText(productoN.getCodigo());
             campoNombre.setText(productoN.getNombre());
             campoPC.setText(productoN.getPreciocosto());
             campoPV.setText(productoN.getPrecioventa());
             campoF.setText(productoN.getFabricante());
-        }
+        }*/
+
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,6 +172,15 @@ public class DetalleProductoN extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),"PRODUCTO ACTUALIZADO",Toast.LENGTH_LONG).show();
         db.close();
 
+    }
+    private void initValues(){
+        productoN = (ProductoN) getIntent().getExtras().getSerializable("itemDetail");
+
+        campoId.setText(productoN.getCodigo());
+        campoNombre.setText(productoN.getNombre());
+        campoPC.setText(productoN.getPreciocosto());
+        campoPV.setText(productoN.getPrecioventa());
+        campoF.setText(productoN.getFabricante());
     }
     private void limpiar(){
         campoId.setText("");

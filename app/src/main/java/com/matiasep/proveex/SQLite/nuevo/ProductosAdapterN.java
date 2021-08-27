@@ -22,6 +22,7 @@ public class ProductosAdapterN extends RecyclerView.Adapter<ProductosAdapterN.My
     private ArrayList<ProductoN> listaProductosLn;
     private ArrayList<ProductoN> originalItems;
 
+
     public ProductosAdapterN(ArrayList<ProductoN>listaProductos){
         this.listaProductosLn=listaProductos;
         originalItems = new ArrayList<>();
@@ -104,5 +105,6 @@ public class ProductosAdapterN extends RecyclerView.Adapter<ProductosAdapterN.My
             });*/
         }
     }
+
 
 }

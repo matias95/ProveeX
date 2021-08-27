@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_gravity="end|bottom"
-        app:fab_labelStyle="@color/etiquetas"
+        app:fab_labelStyle="@style/etiqueta"
         app:fab_addButtonColorNormal="@color/colorPrimary"
         app:fab_addButtonColorPressed="@color/colorPrimaryDark">
         
@@ -71,8 +71,8 @@
             android:layout_height="wrap_content"
             app:fabSize="normal"
             app:fab_icon="@drawable/refab"
-            app:fab_colorNormal="@color/colorAzulRey"
-            app:fab_title="Registrar Producto"/>
+            app:fab_colorNormal="@color/colorVinotinto"
+            app:fab_title=" Registrar Producto "/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab2"
@@ -81,7 +81,7 @@
             app:fabSize="mini"
             app:fab_icon="@drawable/confab"
             app:fab_colorNormal="#8A760C"
-            app:fab_title="Consultar Producto"/>
+            app:fab_title=" Consultar Producto "/>
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 

@@ -37,7 +37,7 @@ import com.matiasep.proveex.R;
 
 import java.util.ArrayList;
 
-public class ListaProdRecycler extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class ListaProdRecycler extends AppCompatActivity implements  SearchView.OnQueryTextListener{
 
     ArrayList<ProductoN> listaProducto;
     RecyclerView recyclerViewProductos;
@@ -160,6 +160,7 @@ public class ListaProdRecycler extends AppCompatActivity implements SearchView.O
             listaProducto.add(productoN);
         }
     }
+
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
