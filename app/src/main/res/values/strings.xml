@@ -1,17 +1,122 @@
 <resources>
     <string name="app_name">ProveeX</string>
-    <string name="hint_nombre">Nombre:</string>
-    <string name="hint_telefono">Telefono:</string>
-    <string name="hint_correo_electronico">Correo electronico:</string>
-    <string name="btn_guarda">Guardar registro</string>
-    <string name="menu_nuevo">Nuevo registro</string>
-    <string name="Iniciar">Button</string>
-    <string name="cancelar">Button</string>
-    <string name="registrar">Button</string>
     <string name="ImagenApp">TODO</string>
     <string name="banner_ad_unit_id">ca-app-pub-5454483537308682/3054899679</string>
+    <!--ca-app-pub-3940256099942544/6300978111-->
     <string name="banner2_ad_unit_id">ca-app-pub-5454483537308682/3845237161</string>
     <string name="intersticial_ad_unit_id">ca-app-pub-5454483537308682/7700721695</string>
     <string name="intersticial2_ad_unit_id">ca-app-pub-5454483537308682/9183217963</string>
     <string name="default_notification_channel_id" translatable="false">default_channel</string>
+
+    <!--DISEÑO-->
+
+    <!--acercade-->
+    <string name="acerca1">APLICACIÓN PARA PROVEEDORES PARA REGISTRAR, ACTUALIZAR, ELIMINAR Y CONSULTAR SUS PRODUCTOS CON SUS CARACTERISTICAS. TAMBIEN TIENE LA FUNCIÓN DE CALCULADORA.</string>
+    <string name="acerca2">SI TIENE PROBLEMAS O ALGUNA DUDA CON LA APLICACIÓN, NO DUDE EN ENVIAR UN MENSAJE AL SOPORTE TECNICO. TAMBIEN LO PODES ENCONTRAR EN LA SESION DE CONTACTO.</string>
+    <string name="acerca3">VERSIÓN 1.0.1</string>
+    <string name="acerca4">SOPORTE TÉCNICO</string>
+    <string name="acerca5">Icono de la App</string>
+
+    <!--consultar-->
+    <string name="con">   Productos   </string>
+    <string name="con1">  Código</string>
+    <string name="con2">  Descripción</string>
+    <string name="con3">  Precio Costo</string>
+    <string name="con4">  Precio Venta</string>
+    <string name="con5">  Fabricante</string>
+    <string name="con6">Actualizar</string>
+    <string name="con7">Eliminar</string>
+    <string name="con8">Buscar</string>
+    <string name="con9">Buscar</string>
+
+    <!--contacto-->
+    <string name="cont">matiaspereyra02@gmail.com</string>
+    <string name="cont1">Matias Ezequiel Pereyra</string>
+
+    <!--lista-->
+    <string name="list">Buscar producto</string>
+    <string name="list1"> Registrar Producto </string>
+    <string name="list2"> Consultar Producto </string>
+
+    <!--menu-->
+    <string name="menu">Consultar Producto</string>
+    <string name="menu1">Registrar Producto</string>
+    <string name="menu2">Lista de Productos</string>
+    <string name="menu3">Calculadora</string>
+
+    <!--registro-->
+    <string name="regi">Limpiar</string>
+    <string name="regi1">  Productos  </string>
+    <string name="regi2">  Código</string>
+    <string name="regi3">  Descripción</string>
+    <string name="regi4">  Precio Costo</string>
+    <string name="regi5">  Precio Venta</string>
+    <string name="regi6">  Fabricante</string>
+    <string name="regi7">Registrar Producto</string>
+
+    <string name="con12">Código: </string>
+    <string name="con22">Descripción: </string>
+    <string name="con32">Precio Costo: </string>
+    <string name="con42">Precio Venta: </string>
+    <string name="con52">Fabricante: </string>
+
+    <!--usuario-->
+    <string name="us">Nombre: </string>
+    <string name="us1">Usuario: </string>
+    <string name="us2">Contraseña: </string>
+    <string name="us3">Registrar</string>
+    <string name="us4"> Usuario</string>
+    <string name="us5"> Contraseña</string>
+    <string name="us6"> Iniciar Sesión</string>
+    <string name="us7"> Registrarme</string>
+
+
+    <!--CLASES-->
+
+    <!--calcu-->
+    <string name="c">Prueba esta aplicación</string>
+
+    <!--consu-->
+    <string name="consu">PRODUCTO ACTUALIZADO</string>
+    <string name="consu1">PRODUCTO ELIMINADO</string>
+    <string name="consu2">¿Desea eliminar este producto?</string>
+    <string name="consu3">El Código no existe</string>
+    <string name="consu4">El Producto no existe</string>
+    <string name="consu5">CALCULADORA</string>
+
+    <!--regis-->
+    <string name="re">PRODUCTO GUARDADO</string>
+    <string name="re1">PRODUCTO ELIMINADO</string>
+
+    <!--usu-->
+    <string name="usu">Por favor introduce usuario y contraseña</string>
+    <string name="usu1">Usuario no encontrado</string>
+    <string name="usu2">Hola usuario </string>
+    <string name="usu3">Error de conexion</string>
+    <string name="usu4">Iniciando...</string>
+    <string name="usu5">Iniciando Sesión</string>
+    <string name="usu6">Complete los campos</string>
+    <string name="usu7">Registrando...</string>
+    <string name="usu8">Registrando Usuario</string>
+    <string name="usu9">Error al registrar el usuario </string>
+    <string name="usu10">Se ha registrado el usuario </string>
+
+    <!--MENUS-->
+    <string name="com">Compartir App</string>
+    <string name="com1">Menú</string>
+    <string name="com2">Soporte</string>
+    <string name="com3">Información</string>
+    <string name="com4">Cerrar Sesión</string>
+
+    <!--TITULOS-->
+    <string name="t">Registrar Producto</string>
+    <string name="t1">Lista de Productos</string>
+    <string name="t2">Consultar Producto</string>
+    <string name="t3">Registrarme</string>
+    <string name="t4">Iniciar Sesión</string>
+    <string name="t5">Calculadora</string>
+    <string name="t6">Información</string>
+    <string name="t7">Soporte Técnico</string>
+
+
 </resources>

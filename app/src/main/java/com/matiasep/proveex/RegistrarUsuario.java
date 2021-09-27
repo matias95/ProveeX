@@ -71,7 +71,7 @@ public class RegistrarUsuario extends AppCompatActivity implements Response.List
                 if(!user.isEmpty() && !pwd.isEmpty() && !nombre.isEmpty()){
                     registrar();
                 }else {
-                    Toast.makeText(RegistrarUsuario.this,"Complete los campos",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistrarUsuario.this,getResources().getString(R.string.usu6),Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -81,14 +81,12 @@ public class RegistrarUsuario extends AppCompatActivity implements Response.List
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true"
                 android:layout_weight="2">*/
-
-
     }
 
     void registrar(){
 
-        mProcessDialog.setTitle("Registrando...");
-        mProcessDialog.setMessage("Registrando Usuario");
+        mProcessDialog.setTitle(getResources().getString(R.string.usu7));
+        mProcessDialog.setMessage(getResources().getString(R.string.usu8));
         mProcessDialog.setCancelable(false);
         mProcessDialog.show();
 
@@ -102,13 +100,13 @@ public class RegistrarUsuario extends AppCompatActivity implements Response.List
     @Override
     public void onErrorResponse(VolleyError error) {
         mProcessDialog.hide();
-        Toast.makeText(getApplicationContext(), "Error al registrar el usuario " + txtUser.getText().toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getResources().getString(R.string.usu9) + txtUser.getText().toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onResponse(JSONObject response) {
         mProcessDialog.hide();
-        Toast.makeText(getApplicationContext(), "Se ha registrado el usuario " + txtUser.getText().toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getResources().getString(R.string.usu10) + txtUser.getText().toString(), Toast.LENGTH_SHORT).show();
         limpiarCajas();
         Intent i=new Intent(RegistrarUsuario.this,LoginUsuario.class);
         RegistrarUsuario.this.startActivity(i);
@@ -117,6 +115,18 @@ public class RegistrarUsuario extends AppCompatActivity implements Response.List
         txtNames.setText("");
         txtUser.setText("");
         txtPwd.setText("");
+    }
+    private void compartirApp() {
+        try {
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+            String aux = getResources().getString(R.string.c);
+            aux = aux + "https://play.google.com/store/apps/details?id=com.matiasep.proveex"+getBaseContext().getPackageName();
+            i.putExtra(Intent.EXTRA_TEXT, aux);
+            startActivity(i);
+        } catch (Exception e) {
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -142,7 +152,10 @@ public class RegistrarUsuario extends AppCompatActivity implements Response.List
             Intent contacto = new Intent(this, ContactoActivity.class);
             startActivity(contacto);
         }
-        if (id == R.id.action_salir22) {
+        if(id == R.id.action_compartir22){
+            compartirApp();
+        }
+        else if (id == R.id.action_salir22) {
 
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);

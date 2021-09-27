@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/fondo1"
+    android:background="@drawable/fondo2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".webservice.RegistrarProductoActivity">

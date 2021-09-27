@@ -63,7 +63,7 @@ public class RegistroProductoN extends AppCompatActivity {
                 // Load the next interstitial.
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
                 registrarProducto();
-                Toast.makeText(getApplicationContext(), "PRODUCTO GUARDADO", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.re), Toast.LENGTH_LONG).show();
                 limpiar();
                 lista();
             }
@@ -93,7 +93,7 @@ public class RegistroProductoN extends AppCompatActivity {
 
                 }else {
                     registrarProducto();
-                    Toast.makeText(getApplicationContext(), "PRODUCTO GUARDADO", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.re), Toast.LENGTH_LONG).show();
                     limpiar();
                     lista();
                 }
@@ -142,6 +142,18 @@ public class RegistroProductoN extends AppCompatActivity {
         campoF.setText("");
 
     }
+    private void compartirApp() {
+        try {
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+            String aux = getResources().getString(R.string.c);
+            aux = aux + "https://play.google.com/store/apps/details?id=com.matiasep.proveex"+getBaseContext().getPackageName();
+            i.putExtra(Intent.EXTRA_TEXT, aux);
+            startActivity(i);
+        } catch (Exception e) {
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -156,34 +168,35 @@ public class RegistroProductoN extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_menu21) {
-            Intent mn = new Intent(this, MenuInicio.class);
-            startActivity(mn);
-        }
-        else if (id == R.id.action_acercade21) {
-            Intent acerca = new Intent(this, AcercaDeActivity.class);
-            startActivity(acerca);
-        }
-        if (id == R.id.action_contacto21) {
-            Intent contacto = new Intent(this, ContactoActivity.class);
-            startActivity(contacto);
-        }
-        else if (id == R.id.action_salir21) {
-            SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
-            preferences.edit().clear().commit();
-            FirebaseAuth.getInstance().signOut();
-
-            Intent i=new Intent(getApplicationContext(), LoginUsuario.class);
-            startActivity(i);
-            finish();
-        }
-        if (id == R.id.action_calc) {
-            Toast.makeText(this, "CALCULADORA", Toast.LENGTH_SHORT).show();
-            Intent cal = new Intent(this, CalcuActivity.class);
-            startActivity(cal);
+        switch (item.getItemId()){
+            case R.id.action_menu21:
+                Intent mn = new Intent(this, MenuInicio.class);
+                startActivity(mn);
+                break;
+            case R.id.action_acercade21:
+                Intent acercade = new Intent(this, AcercaDeActivity.class);
+                startActivity(acercade);
+                break;
+            case R.id.action_contacto21:
+                Intent contacto = new Intent(this, ContactoActivity.class);
+                startActivity(contacto);
+                break;
+            case R.id.action_compartir21:
+                compartirApp();
+                break;
+            case R.id.action_salir21:
+                SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+                preferences.edit().clear().commit();
+                //FirebaseAuth.getInstance().signOut();
+                Intent i=new Intent(getApplicationContext(), LoginUsuario.class);
+                startActivity(i);
+                finish();
+                break;
+            case R.id.action_calc:
+                Toast.makeText(this, getResources().getString(R.string.consu5), Toast.LENGTH_SHORT).show();
+                Intent cal = new Intent(this, CalcuActivity.class);
+                startActivity(cal);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

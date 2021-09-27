@@ -72,7 +72,6 @@ public class MenuInicio extends AppCompatActivity {
             public void onAdClosed() {
                 // Load the next interstitial.
                 mInterstitialAdc.loadAd(new AdRequest.Builder().build());
-                Toast.makeText(getApplicationContext(), "Consultar Producto", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), ConsultarProductoN.class);
                 startActivity(i);
             }
@@ -83,7 +82,6 @@ public class MenuInicio extends AppCompatActivity {
             public void onAdClosed() {
                 // Load the next interstitial.
                 mInterstitialAdr.loadAd(new AdRequest.Builder().build());
-                Toast.makeText(getApplicationContext(), "Registrar Productos", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), RegistroProductoN.class);
                 startActivity(i);
             }
@@ -93,7 +91,6 @@ public class MenuInicio extends AppCompatActivity {
             @Override
             public void onAdClosed() {
                 // Load the next interstitial.
-                Toast.makeText(getApplicationContext(), "Lista de Productos", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), ListaProdRecycler.class);
                 startActivity(i);
             }
@@ -103,7 +100,6 @@ public class MenuInicio extends AppCompatActivity {
             @Override
             public void onAdClosed() {
                 // Load the next interstitial.
-                Toast.makeText(getApplicationContext(), "Calculadora", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), CalcuActivity.class);
                 startActivity(i);
             }
@@ -132,7 +128,6 @@ public class MenuInicio extends AppCompatActivity {
                     mInterstitialAdc.show();
 
                 }else {
-                    Toast.makeText(getApplicationContext(), "Consultar Producto", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), ConsultarProductoN.class);
                     startActivity(i);
                 }
@@ -147,7 +142,7 @@ public class MenuInicio extends AppCompatActivity {
                     mInterstitialAdr.show();
 
                 }else {
-                    Toast.makeText(getApplicationContext(), "Registrar Productos", Toast.LENGTH_SHORT).show();
+
                     Intent i = new Intent(getApplicationContext(), RegistroProductoN.class);
                     startActivity(i);
                 }
@@ -162,7 +157,7 @@ public class MenuInicio extends AppCompatActivity {
                     mInterstitialAdl.show();
 
                 }else {
-                    Toast.makeText(getApplicationContext(), "Lista de Productos", Toast.LENGTH_SHORT).show();
+
                     Intent i = new Intent(getApplicationContext(), ListaProdRecycler.class);
                     startActivity(i);
                 }
@@ -177,7 +172,7 @@ public class MenuInicio extends AppCompatActivity {
                     mInterstitialAdca.show();
 
                 }else {
-                    Toast.makeText(getApplicationContext(), "Calculadora", Toast.LENGTH_SHORT).show();
+
                     Intent i = new Intent(getApplicationContext(), CalcuActivity.class);
                     startActivity(i);
                 }
@@ -185,12 +180,24 @@ public class MenuInicio extends AppCompatActivity {
             }
         });
     }
+    private void compartirApp() {
+        try {
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+            String aux = getResources().getString(R.string.c);
+            aux = aux + "https://play.google.com/store/apps/details?id=com.matiasep.proveex"+getBaseContext().getPackageName();
+            i.putExtra(Intent.EXTRA_TEXT, aux);
+            startActivity(i);
+        } catch (Exception e) {
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater= getMenuInflater();
-        inflater.inflate(R.menu.main2,menu );
+        inflater.inflate(R.menu.main22,menu );
         return true;
     }
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -202,15 +209,18 @@ public class MenuInicio extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_acercade2) {
+        if (id == R.id.action_acercade22) {
             Intent acercade = new Intent(this, AcercaDeActivity.class);
             startActivity(acercade);
         }
-        else if (id == R.id.action_contacto2) {
+        else if (id == R.id.action_contacto22) {
             Intent contacto = new Intent(this, ContactoActivity.class);
             startActivity(contacto);
         }
-        if (id == R.id.action_salir2) {
+        if(id == R.id.action_compartir22){
+            compartirApp();
+        }
+        else if (id == R.id.action_salir22) {
             SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
             preferences.edit().clear().commit();
             FirebaseAuth.getInstance().signOut();

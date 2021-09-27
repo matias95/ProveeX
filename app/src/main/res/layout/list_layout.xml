@@ -42,7 +42,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Código: "
+                        android:text="@string/con12"
                         android:textStyle="bold"
                         android:textSize="18dp"/>
 
@@ -61,7 +61,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Descripción: "
+                        android:text="@string/con22"
                         android:textStyle="bold"
                         android:textSize="18dp"/>
 
@@ -80,7 +80,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Precio Costo: "
+                        android:text="@string/con32"
                         android:textStyle="bold"
                         android:textSize="18dp"/>
 
@@ -100,7 +100,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Precio Venta: "
+                        android:text="@string/con42"
                         android:textStyle="bold"
                         android:textSize="18dp"/>
 
@@ -120,7 +120,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fabricante: "
+                        android:text="@string/con52"
                         android:textStyle="bold"
                         android:textSize="18dp"/>
 

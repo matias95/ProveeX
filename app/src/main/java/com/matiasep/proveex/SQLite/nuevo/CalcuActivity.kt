@@ -1,6 +1,5 @@
 package com.matiasep.proveex.SQLite.nuevo
 
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -12,10 +11,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.auth.FirebaseAuth
-import com.matiasep.proveex.AcercaDeActivity
-import com.matiasep.proveex.ContactoActivity
-import com.matiasep.proveex.LoginUsuario
-import com.matiasep.proveex.R
+import com.matiasep.proveex.*
 import kotlinx.android.synthetic.main.activity_calculadora.*
 
 class CalcuActivity : AppCompatActivity() {
@@ -96,7 +92,9 @@ class CalcuActivity : AppCompatActivity() {
 
         num1 = result as Double
 
-        resultadoText.text = if("$result".endsWith(".0")) { "$result".replace(".0","") } else { "%.2f".format(result) }
+        resultadoText.text = if("$result".endsWith(".0")) { "$result".replace(".0", "") } else { "%.2f".format(
+            result
+        ) }
     }
 
     private fun resetAll(){
@@ -113,10 +111,23 @@ class CalcuActivity : AppCompatActivity() {
         const val SIN_OPERACION = 0
     }
 
+    private fun compartirApp() {
+        try {
+            val i = Intent(Intent.ACTION_SEND)
+            i.type = "text/plain"
+            i.putExtra(Intent.EXTRA_SUBJECT, resources.getString(R.string.app_name))
+            var aux = resources.getString(R.string.c)
+            aux = aux + "https://play.google.com/store/apps/details?id=com.matiasep.proveex" + baseContext.packageName
+            i.putExtra(Intent.EXTRA_TEXT, aux)
+            startActivity(i)
+        } catch (e: Exception) {
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         val inflater = menuInflater
-        inflater.inflate(R.menu.main2, menu)
+        inflater.inflate(R.menu.main21, menu)
         return true
     }
 
@@ -126,25 +137,26 @@ class CalcuActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         val id = item.itemId
-        if (id == R.id.action_acercade2) {
+        if (id == R.id.action_menu21) {
+            val mn = Intent(this, MenuInicio::class.java)
+            startActivity(mn)
+        } else if (id == R.id.action_acercade21) {
             val acercade = Intent(this, AcercaDeActivity::class.java)
             startActivity(acercade)
-        } else if (id == R.id.action_contacto2) {
+        }
+        if (id == R.id.action_contacto21) {
             val contacto = Intent(this, ContactoActivity::class.java)
             startActivity(contacto)
-        }
-        if (id == R.id.action_salir2) {
-            val preferences =
-                getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE)
+        } else if (id == R.id.action_salir21) {
+            val preferences = getSharedPreferences("preferenciasLogin", MODE_PRIVATE)
             preferences.edit().clear().commit()
-            FirebaseAuth.getInstance().signOut()
+            //FirebaseAuth.getInstance().signOut()
             val i = Intent(applicationContext, LoginUsuario::class.java)
             startActivity(i)
             finish()
-            /*Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);*/
+        }
+        if(id== R.id.action_compartir21){
+            compartirApp()
         }
         //return true;
         return super.onOptionsItemSelected(item)

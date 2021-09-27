@@ -41,7 +41,6 @@ public class ListaProdRecycler extends AppCompatActivity implements  SearchView.
 
     ArrayList<ProductoN> listaProducto;
     RecyclerView recyclerViewProductos;
-    TextView imagSinConexion;
     SearchView svSearch;
     ProductosAdapterN adapter;
     private InterstitialAd mInterstitialAdr, mInterstitialAdc;
@@ -89,8 +88,7 @@ public class ListaProdRecycler extends AppCompatActivity implements  SearchView.
 
         conn=new ConexionSQLiteHelperN(getApplicationContext(),"bd_productos",null,1);
 
-        imagSinConexion= findViewById(R.id.SinConexionCal);
-        imagSinConexion.setVisibility(View.INVISIBLE);
+
         svSearch = findViewById(R.id.svSearch);
 
         listaProducto=new ArrayList<>();
@@ -160,7 +158,18 @@ public class ListaProdRecycler extends AppCompatActivity implements  SearchView.
             listaProducto.add(productoN);
         }
     }
-
+    private void compartirApp() {
+        try {
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+            String aux = getResources().getString(R.string.c);
+            aux = aux + "https://play.google.com/store/apps/details?id=com.matiasep.proveex"+getBaseContext().getPackageName();
+            i.putExtra(Intent.EXTRA_TEXT, aux);
+            startActivity(i);
+        } catch (Exception e) {
+        }
+    }
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
@@ -185,34 +194,35 @@ public class ListaProdRecycler extends AppCompatActivity implements  SearchView.
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_menu21) {
-            Intent mn = new Intent(this, MenuInicio.class);
-            startActivity(mn);
-        }
-        else if (id == R.id.action_acercade21) {
-            Intent acercade = new Intent(this, AcercaDeActivity.class);
-            startActivity(acercade);
-        }
-        if (id == R.id.action_contacto21) {
-            Intent contacto = new Intent(this, ContactoActivity.class);
-            startActivity(contacto);
-        }
-        else if (id == R.id.action_salir21) {
-            SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
-            preferences.edit().clear().commit();
-            FirebaseAuth.getInstance().signOut();
-
-            Intent i=new Intent(getApplicationContext(), LoginUsuario.class);
-            startActivity(i);
-            finish();
-        }
-        if (id == R.id.action_calc) {
-            Toast.makeText(this, "CALCULADORA", Toast.LENGTH_SHORT).show();
-            Intent cal = new Intent(this, CalcuActivity.class);
-            startActivity(cal);
+        switch (item.getItemId()){
+            case R.id.action_menu21:
+                Intent mn = new Intent(this, MenuInicio.class);
+                startActivity(mn);
+                break;
+            case R.id.action_acercade21:
+                Intent acercade = new Intent(this, AcercaDeActivity.class);
+                startActivity(acercade);
+                break;
+            case R.id.action_contacto21:
+                Intent contacto = new Intent(this, ContactoActivity.class);
+                startActivity(contacto);
+                break;
+            case R.id.action_compartir21:
+                compartirApp();
+                break;
+            case R.id.action_salir21:
+                SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+                preferences.edit().clear().commit();
+                //FirebaseAuth.getInstance().signOut();
+                Intent i=new Intent(getApplicationContext(), LoginUsuario.class);
+                startActivity(i);
+                finish();
+                break;
+            case R.id.action_calc:
+                Toast.makeText(this, getResources().getString(R.string.consu5), Toast.LENGTH_SHORT).show();
+                Intent cal = new Intent(this, CalcuActivity.class);
+                startActivity(cal);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

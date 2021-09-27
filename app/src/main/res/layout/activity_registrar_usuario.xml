@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre: "
+                android:text="@string/us"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"/>
@@ -58,7 +58,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Usuario: "
+                android:text="@string/us1"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"/>
@@ -84,7 +84,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contraseña: "
+                android:text="@string/us2"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"/>
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="90dp"
             android:layout_marginBottom="90dp"
-            android:text="Registrar"
+            android:text="@string/us3"
             android:textStyle="bold"
             android:textSize="18sp"
             android:background="@drawable/borde2"

@@ -30,7 +30,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_marginRight="20dp"
-                    android:text="Limpiar"
+                    android:text="@string/regi"
                     android:gravity="center"
                     android:background="@drawable/borde2"
                     android:textColor="@android:color/white" />
@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_marginLeft="20dp"
-                    android:text="  Lista Productos  "
+                    android:text="@string/regi1"
                     android:gravity="center"
                     android:background="@drawable/borde2"
                     android:textColor="@android:color/white" />
@@ -57,7 +57,7 @@
                 android:singleLine="true"
                 android:nextFocusDown="@id/campoNombre"
                 android:background="@drawable/borde"
-                android:hint="  Código"/>
+                android:hint="@string/regi2"/>
 
             <EditText
                 android:id="@+id/campoNombre"
@@ -70,7 +70,7 @@
                 android:singleLine="true"
                 android:imeOptions="actionNext"
                 android:nextFocusDown="@id/campoPC"
-                android:hint="  Descripción"/>
+                android:hint="@string/regi3"/>
 
             <EditText
                 android:id="@+id/campoPC"
@@ -84,7 +84,7 @@
                 android:inputType="numberDecimal"
                 android:imeOptions="actionNext"
                 android:nextFocusDown="@id/campoPV"
-                android:hint="  Precio Costo"/>
+                android:hint="@string/regi4"/>
 
             <EditText
                 android:id="@+id/campoPV"
@@ -98,7 +98,7 @@
                 android:singleLine="true"
                 android:nextFocusDown="@id/campoF"
                 android:background="@drawable/borde"
-                android:hint="  Precio Venta"/>
+                android:hint="@string/regi5"/>
 
             <EditText
                 android:id="@+id/campoF"
@@ -110,13 +110,13 @@
                 android:singleLine="true"
                 android:imeOptions="actionDone"
                 android:background="@drawable/borde"
-                android:hint="  Fabricante"/>
+                android:hint="@string/regi6"/>
 
             <Button
                 android:id="@+id/btnRegistro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Registrar Producto"
+                android:text="@string/regi7"
                 android:textColor="@android:color/white"
                 android:background="@drawable/bordecel"
                 android:textStyle="bold"

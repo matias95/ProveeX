@@ -13,27 +13,34 @@
                 android:id="@+id/action_menu21"
                 android:orderInCategory="100"
                 android:icon="@drawable/home"
-                android:title="Menu"
+                android:title="@string/com1"
                 app:showAsAction="always|withText" />
 
             <item
                 android:id="@+id/action_acercade21"
                 android:orderInCategory="100"
                 android:icon="@drawable/info"
-                android:title="Información"
+                android:title="@string/com3"
                 app:showAsAction="always|withText" />
 
             <item
                 android:id="@+id/action_contacto21"
                 android:orderInCategory="100"
                 android:icon="@drawable/contac"
-                android:title="Soporte"
+                android:title="@string/com2"
+                app:showAsAction="always|withText" />
+
+            <item
+                android:id="@+id/action_compartir21"
+                android:orderInCategory="100"
+                android:icon="@drawable/comp"
+                android:title="@string/com"
                 app:showAsAction="always|withText" />
             <item
                 android:id="@+id/action_salir21"
                 android:orderInCategory="100"
                 android:icon="@drawable/salir"
-                android:title="Cerrar Sesión"
+                android:title="@string/com4"
                 app:showAsAction="always|withText" />
 
         </menu>

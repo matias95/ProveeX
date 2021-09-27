@@ -82,7 +82,7 @@ public class LoginUsuario extends AppCompatActivity implements Response.Listener
 
 
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
 
         txtUser = (EditText) findViewById(R.id.txtuser);
         txtPwd = (EditText) findViewById(R.id.txtpwd);
@@ -100,10 +100,10 @@ public class LoginUsuario extends AppCompatActivity implements Response.Listener
             public void onClick(View view) {
                 user=txtUser.getText().toString();
                 pwd=txtPwd.getText().toString();
-                if(!user.isEmpty() || pwd.isEmpty()){
+                if(!user.isEmpty() || !pwd.isEmpty()){
                     iniciar_sesion();
                 }else {
-                    Toast.makeText(LoginUsuario.this,"Por favor introduce usuario y contraseña", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginUsuario.this,getResources().getString(R.string.usu), Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -114,15 +114,15 @@ public class LoginUsuario extends AppCompatActivity implements Response.Listener
                 registrar_usu();
             }
         });
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        /*GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);*/
 
     }
-    @Override
+    /*@Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -172,7 +172,7 @@ public class LoginUsuario extends AppCompatActivity implements Response.Listener
     }
     private void updateUI(FirebaseUser user) {
 
-    }
+    }*/
     private void guardarPreferencias(){
         SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=preferences.edit();
@@ -190,12 +190,12 @@ public class LoginUsuario extends AppCompatActivity implements Response.Listener
     @Override
     public void onErrorResponse(VolleyError error) {
         mProcessDialog.hide();
-        Toast.makeText(getApplicationContext(), "Usuario no encontrado", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), getResources().getString(R.string.usu1), Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onResponse(JSONObject response) {
-        Toast.makeText(getApplicationContext(), "Hola usuario " + txtUser.getText().toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getResources().getString(R.string.usu2) + txtUser.getText().toString(), Toast.LENGTH_SHORT).show();
         Usuario usuario = new Usuario();
         JSONArray jsonArray = response.optJSONArray("datos");
         JSONObject jsonObject = null;
@@ -208,7 +208,7 @@ public class LoginUsuario extends AppCompatActivity implements Response.Listener
             mProcessDialog.hide();
         } catch (JSONException e) {
             e.printStackTrace();
-            Toast.makeText(LoginUsuario.this,"Error de conexion", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginUsuario.this,getResources().getString(R.string.usu3), Toast.LENGTH_SHORT).show();
             mProcessDialog.hide();
         }
         guardarPreferencias();
@@ -220,8 +220,8 @@ public class LoginUsuario extends AppCompatActivity implements Response.Listener
 
     void iniciar_sesion() {
 
-        mProcessDialog.setTitle("Iniciando...");
-        mProcessDialog.setMessage("Iniciando Sesión");
+        mProcessDialog.setTitle(getResources().getString(R.string.usu4));
+        mProcessDialog.setMessage(getResources().getString(R.string.usu5));
         mProcessDialog.setCancelable(false);
         mProcessDialog.show();
 
@@ -234,6 +234,18 @@ public class LoginUsuario extends AppCompatActivity implements Response.Listener
     void registrar_usu(){
         Intent i = new Intent(this, RegistrarUsuario.class);
         startActivity(i);
+    }
+    private void compartirApp() {
+        try {
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+            String aux = getResources().getString(R.string.c);
+            aux = aux + "https://play.google.com/store/apps/details?id=com.matiasep.proveex"+getBaseContext().getPackageName();
+            i.putExtra(Intent.EXTRA_TEXT, aux);
+            startActivity(i);
+        } catch (Exception e) {
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -259,7 +271,10 @@ public class LoginUsuario extends AppCompatActivity implements Response.Listener
             Intent contacto = new Intent(this, ContactoActivity.class);
             startActivity(contacto);
         }
-        if (id == R.id.action_salir22) {
+        if(id == R.id.action_compartir22){
+            compartirApp();
+        }
+        else if (id == R.id.action_salir22) {
 
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);

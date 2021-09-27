@@ -14,20 +14,27 @@
                 android:id="@+id/action_acercade22"
                 android:orderInCategory="100"
                 android:icon="@drawable/info"
-                android:title="Información"
+                android:title="@string/com3"
                 app:showAsAction="always|withText" />
 
             <item
                 android:id="@+id/action_contacto22"
                 android:orderInCategory="100"
                 android:icon="@drawable/contac"
-                android:title="Soporte"
+                android:title="@string/com2"
+                app:showAsAction="always|withText" />
+
+            <item
+                android:id="@+id/action_compartir22"
+                android:orderInCategory="100"
+                android:icon="@drawable/comp"
+                android:title="@string/com"
                 app:showAsAction="always|withText" />
             <item
                 android:id="@+id/action_salir22"
                 android:orderInCategory="100"
                 android:icon="@drawable/salir"
-                android:title="Salir"
+                android:title="@string/com4"
                 app:showAsAction="always|withText" />
 
         </menu>

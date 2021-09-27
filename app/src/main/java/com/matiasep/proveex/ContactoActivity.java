@@ -42,9 +42,6 @@ public class ContactoActivity extends AppCompatActivity  {
     }
     public void onClickLin(View v) {
         Uri uri = Uri.parse("https://www.linkedin.com/in/matias-pereyra");
-        Toast toast = Toast.makeText(this, "Perfil de Linkedin", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }

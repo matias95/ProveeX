@@ -39,7 +39,7 @@
 
         <activity
             android:name="com.matiasep.proveex.SQLite.nuevo.RegistroProductoN"
-            android:label="Registrar Producto"
+            android:label="@string/t"
             android:parentActivityName="com.matiasep.proveex.MenuInicio"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
@@ -47,12 +47,12 @@
 
         <activity
             android:name="com.matiasep.proveex.webservice.ListaProductos"
-            android:label="Lista de Productos"
+            android:label="@string/t1"
             android:screenOrientation="portrait" />
 
         <activity
             android:name="com.matiasep.proveex.SQLite.nuevo.ListaProdRecycler"
-            android:label="Lista de Productos"
+            android:label="@string/t1"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:parentActivityName="com.matiasep.proveex.MenuInicio">
@@ -67,7 +67,7 @@
 
         <activity
             android:name="com.matiasep.proveex.SQLite.nuevo.ConsultarProductoN"
-            android:label="Consultar Producto"
+            android:label="@string/t2"
             android:parentActivityName="com.matiasep.proveex.MenuInicio"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
@@ -95,7 +95,7 @@
 
         <activity
             android:name="com.matiasep.proveex.RegistrarUsuario"
-            android:label="Registrarme"
+            android:label="@string/t3"
             android:parentActivityName="com.matiasep.proveex.LoginUsuario"
             android:screenOrientation="portrait" >
 
@@ -113,14 +113,14 @@
         </activity>
         <activity
             android:name="com.matiasep.proveex.LoginUsuario"
-            android:label="Iniciar Sesión"
+            android:label="@string/t4"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"/>
 
         <activity
             android:name="com.matiasep.proveex.SQLite.nuevo.CalcuActivity"
             android:screenOrientation="portrait"
-            android:label="Calculadora"
+            android:label="@string/t5"
             android:parentActivityName="com.matiasep.proveex.MenuInicio"/>
 
         <provider
@@ -135,12 +135,12 @@
 
         <activity
             android:name="com.matiasep.proveex.AcercaDeActivity"
-            android:label="Información"
+            android:label="@string/t6"
             android:parentActivityName="com.matiasep.proveex.LoginUsuario"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.matiasep.proveex.ContactoActivity"
-            android:label="Soporte Técnico"
+            android:label="@string/t7"
             android:parentActivityName="com.matiasep.proveex.LoginUsuario"
             android:screenOrientation="portrait" />
 

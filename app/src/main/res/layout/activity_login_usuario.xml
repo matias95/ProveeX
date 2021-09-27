@@ -19,7 +19,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round"
+            android:src="@drawable/ico1"
             android:layout_marginBottom="10dp"/>
 
         <EditText
@@ -34,7 +34,7 @@
             android:ems="10"
             android:imeOptions="actionNext"
             android:nextFocusDown="@id/txtpwd"
-            android:hint=" Usuario"
+            android:hint="@string/us4"
             android:background="@drawable/borde"/>
 
         <EditText
@@ -49,13 +49,13 @@
             android:singleLine="true"
             android:inputType="textPassword"
             android:imeOptions="actionDone"
-            android:hint=" Contraseña"/>
+            android:hint="@string/us5"/>
 
         <Button
             android:id="@+id/btnsesion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iniciar Sesión"
+            android:text="@string/us6"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -65,7 +65,7 @@
             android:id="@+id/btnregistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrarme"
+            android:text="@string/us7"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -104,7 +104,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/banner2_ad_unit_id">
+        ads:adUnitId="@string/banner_ad_unit_id">
 
     </com.google.android.gms.ads.AdView>
 

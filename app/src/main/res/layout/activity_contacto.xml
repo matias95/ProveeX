@@ -30,7 +30,7 @@
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:onClick="onClickMail"
-            android:text="matiaspereyra02@gmail.com"
+            android:text="@string/cont"
             android:textColor="@android:color/white"/>
 
         <Button
@@ -43,7 +43,7 @@
             android:background="@drawable/bordecel"
             android:layout_centerHorizontal="true"
             android:onClick="onClickLin"
-            android:text="Matias Ezequiel Pereyra"
+            android:text="@string/cont1"
             android:textColor="@android:color/white"/>
 
 
