@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".ContactoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/jap"/>
+
+        <Button
+            android:id="@+id/You"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde2"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@drawable/you"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickYou"
+            android:text="@string/cont2"
+            android:textSize="35sp"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/Mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde2"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@drawable/mail"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickMail"
+            android:text="@string/cont"
+            android:textSize="35sp"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/Lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="90dp"
+            android:drawableLeft="@drawable/lin"
+            android:gravity="center"
+            android:background="@drawable/bordecel"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickLin"
+            android:text="@string/cont1"
+            android:textSize="35sp"
+            android:textColor="@android:color/white"/>
+
+
+    </LinearLayout>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+
+    </com.google.android.gms.ads.AdView>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner2_ad_unit_id">
+
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

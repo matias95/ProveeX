@@ -164,7 +164,7 @@ public class ListaProdRecycler extends AppCompatActivity implements  SearchView.
             i.setType("text/plain");
             i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
             String aux = getResources().getString(R.string.c);
-            aux = aux + "https://play.google.com/store/apps/details?id=com.matiasep.proveex"+getBaseContext().getPackageName();
+            aux = aux + "\n https://play.google.com/store/apps/details?id=com.matiasep.proveex"+getBaseContext().getPackageName();
             i.putExtra(Intent.EXTRA_TEXT, aux);
             startActivity(i);
         } catch (Exception e) {

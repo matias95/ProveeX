@@ -117,7 +117,7 @@ class CalcuActivity : AppCompatActivity() {
             i.type = "text/plain"
             i.putExtra(Intent.EXTRA_SUBJECT, resources.getString(R.string.app_name))
             var aux = resources.getString(R.string.c)
-            aux = aux + "https://play.google.com/store/apps/details?id=com.matiasep.proveex" + baseContext.packageName
+            aux = aux + "\n https://play.google.com/store/apps/details?id=com.matiasep.proveex" + baseContext.packageName
             i.putExtra(Intent.EXTRA_TEXT, aux)
             startActivity(i)
         } catch (e: Exception) {

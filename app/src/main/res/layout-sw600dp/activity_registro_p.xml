@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo2"
+    tools:context=".SQLite.nuevo.RegistroProductoN">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="40dp"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/btnEliminarC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/regi"
+                    android:gravity="center"
+                    android:background="@drawable/borde2"
+                    android:textColor="@android:color/white" />
+                <Button
+                    android:id="@+id/btnlistaC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/regi1"
+                    android:gravity="center"
+                    android:background="@drawable/borde2"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/campoId"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:imeOptions="actionNext"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:singleLine="true"
+                android:nextFocusDown="@id/campoNombre"
+                android:background="@drawable/borde"
+                android:hint="@string/regi2"/>
+
+            <EditText
+                android:id="@+id/campoNombre"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/borde"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/campoPC"
+                android:hint="@string/regi3"/>
+
+            <EditText
+                android:id="@+id/campoPC"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/borde"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:singleLine="true"
+                android:inputType="numberDecimal"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/campoPV"
+                android:hint="@string/regi4"/>
+
+            <EditText
+                android:id="@+id/campoPV"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:inputType="numberDecimal"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:layout_weight="2"
+                android:singleLine="true"
+                android:nextFocusDown="@id/campoF"
+                android:background="@drawable/borde"
+                android:hint="@string/regi5"/>
+
+            <EditText
+                android:id="@+id/campoF"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_weight="2"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:background="@drawable/borde"
+                android:hint="@string/regi6"/>
+
+            <Button
+                android:id="@+id/btnRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/regi7"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bordecel"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="40dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

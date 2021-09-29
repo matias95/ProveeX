@@ -18,7 +18,21 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:layout_marginBottom="20dp"
             android:src="@drawable/jap"/>
+
+        <Button
+            android:id="@+id/You"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde2"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@drawable/you"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClickYou"
+            android:text="@string/cont2"
+            android:textColor="@android:color/white"/>
 
         <Button
             android:id="@+id/Mail"

@@ -60,6 +60,11 @@ public class ContactoActivity extends AppCompatActivity  {
             Toast.makeText(ContactoActivity.this,"No tienes clientes de email instalados.", Toast.LENGTH_SHORT).show();
         }
     }
+    public void onClickYou(View v) {
+        Uri uri = Uri.parse("https://www.youtube.com/channel/UCAiLTOmYyE9YHit8DQmGxJQ");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
 
     public void irAweb(String d){
         Uri uri= Uri.parse(d);
