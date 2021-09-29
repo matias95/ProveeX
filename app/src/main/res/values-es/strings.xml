@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">ProveeX</string>
     <string name="ImagenApp">TODO</string>
-    <string name="banner_ad_unit_id">ca-app-pub-5454483537308682/3054899679</string>
-    <!--ca-app-pub-3940256099942544/6300978111-->
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <!--ca-app-pub-3940256099942544/6300978111Prueba-->
     <!--ca-app-pub-5454483537308682/3054899679-->
-    <string name="banner2_ad_unit_id">ca-app-pub-5454483537308682/3845237161</string>
-    <string name="intersticial_ad_unit_id">ca-app-pub-5454483537308682/7700721695</string>
-    <string name="intersticial2_ad_unit_id">ca-app-pub-5454483537308682/9183217963</string>
+    <!--ca-app-pub-5454483537308682/3845237161-->
+    <!--ca-app-pub-5454483537308682/7700721695-->
+    <!--ca-app-pub-5454483537308682/7700721695-->
+    <string name="banner2_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="intersticial_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="intersticial2_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="default_notification_channel_id" translatable="false">default_channel</string>
 
     <!--DISEÑO-->
@@ -82,6 +85,7 @@
     <string name="consu">PRODUCTO ACTUALIZADO</string>
     <string name="consu1">PRODUCTO ELIMINADO</string>
     <string name="consu2">¿Desea eliminar este producto?</string>
+    <string name="consu6">SI</string>
     <string name="consu3">El Código no existe</string>
     <string name="consu4">El Producto no existe</string>
     <string name="consu5">CALCULADORA</string>

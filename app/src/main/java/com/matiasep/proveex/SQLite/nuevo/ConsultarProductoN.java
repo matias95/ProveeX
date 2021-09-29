@@ -126,7 +126,7 @@ public class ConsultarProductoN extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ConsultarProductoN.this);
                 builder.setMessage(getResources().getString(R.string.consu2))
-                        .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(getResources().getString(R.string.consu6), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
                                 if(mInterstitialAde.isLoaded()){
