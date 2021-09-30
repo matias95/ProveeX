@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
-import com.google.firebase.auth.FirebaseAuth
 import com.matiasep.proveex.*
 import kotlinx.android.synthetic.main.activity_calculadora.*
 
@@ -117,7 +116,7 @@ class CalcuActivity : AppCompatActivity() {
             i.type = "text/plain"
             i.putExtra(Intent.EXTRA_SUBJECT, resources.getString(R.string.app_name))
             var aux = resources.getString(R.string.c)
-            aux = aux + "\n https://play.google.com/store/apps/details?id=com.matiasep.proveex" + baseContext.packageName
+            aux = "$aux\n https://play.google.com/store/apps/details?id=com.matiasep.proveex"
             i.putExtra(Intent.EXTRA_TEXT, aux)
             startActivity(i)
         } catch (e: Exception) {
