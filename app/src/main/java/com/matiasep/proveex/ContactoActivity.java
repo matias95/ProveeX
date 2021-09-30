@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,8 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 public class ContactoActivity extends AppCompatActivity  {
     private AdView mAdView;
     private AdView mAdView2;
+    Button btnLin;
+
 
 
     @Override
@@ -34,6 +37,8 @@ public class ContactoActivity extends AppCompatActivity  {
 
         mAdView = findViewById(R.id.adView);
         mAdView2 = findViewById(R.id.adView2);
+        btnLin=(Button) findViewById(R.id.Lin);
+        btnLin.setVisibility(View.INVISIBLE);
 
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
